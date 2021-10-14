@@ -53,17 +53,14 @@ public class MemberAddServlet extends HttpServlet {
 						   "VALUES(?, ?, ?, NOW(), NOW())";
 		
 		ServletContext sc = this.getServletContext();
-		
-		//컨텍스트 초기화 매개변수 꺼내 쓰기 -> sc.getIninParameter메소드로 접근
 		String driver = sc.getInitParameter("driver");
 		String url = sc.getInitParameter("url");
 		String id = sc.getInitParameter("username");
 		String pw = sc.getInitParameter("password");
 		
 		try {
-			
+			//DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			Class.forName(driver);
-			
 			conn = DriverManager.getConnection(url, id, pw);
 			stmt = conn.prepareStatement(sqlInsert);
 			stmt.setString(1, request.getParameter("email"));
@@ -71,7 +68,7 @@ public class MemberAddServlet extends HttpServlet {
 			stmt.setString(3, request.getParameter("name"));
 			stmt.executeUpdate();
 			
-			//sendRedirect 의 결과 값 출력 안하고 바로 /member/list로 이동
+			//sendRedirect 밑의 결과 값 출력 안하고 바로 /member/list로 이동
 			response.sendRedirect("list");
 			
 			response.setContentType("text/html;charset=UTF-8");

@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +18,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MemberUpdateServlet
  */
-//@WebServlet("/MemberUpdateServlet")
+@WebServlet(
+		urlPatterns = {"/member/update"},
+		initParams = {
+				@WebInitParam(name="driver", value="com.mysql.jdbc.Driver"),
+				@WebInitParam(name="url", value="jdbc:mysql://localhost/studydb?serverTimezone=UTC"),
+				@WebInitParam(name="username", value="study"),
+				@WebInitParam(name="password", value="study")
+		}
+)
 public class MemberUpdateServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

@@ -37,7 +37,7 @@ public class MemberListServlet extends GenericServlet {
 		//mysql 서버 접속정보
 		String mySqlUrl = "jdbc:mysql://localhost/studydb?serverTimezone=UTC";
 		String id = "study";
-		String pwd = "!study123";
+		String pwd = "study";
 		
 		try {
 			// 1. MySQL 제어 객체를 로딩

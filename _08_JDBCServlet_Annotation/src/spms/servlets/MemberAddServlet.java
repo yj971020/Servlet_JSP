@@ -52,7 +52,7 @@ public class MemberAddServlet extends HttpServlet {
 						   "VALUES(?, ?, ?, NOW(), NOW())";
 		String url = "jdbc:mysql://localhost/studydb?serverTimezone=UTC";
 		String id = "study";
-		String pw = "!study123";
+		String pw = "study";
 		
 		try {
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
@@ -63,7 +63,7 @@ public class MemberAddServlet extends HttpServlet {
 			stmt.setString(3, request.getParameter("name"));
 			stmt.executeUpdate();
 			
-			//sendRedirect 의 결과 값 출력 안하고 바로 /member/list로 이동
+			//sendRedirect 밑의 결과 값 출력 안하고 바로 /member/list로 이동
 			response.sendRedirect("list");
 			
 			response.setContentType("text/html;charset=UTF-8");

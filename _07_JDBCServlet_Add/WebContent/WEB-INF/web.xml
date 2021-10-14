@@ -21,7 +21,7 @@
   	</init-param>
   	<init-param>
   		<param-name>password</param-name>
-  		<param-value>!study123</param-value>
+  		<param-value>study</param-value>
   	</init-param>
   </servlet>
   

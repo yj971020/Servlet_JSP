@@ -17,7 +17,7 @@
   </context-param>
   <context-param>
   	<param-name>password</param-name>
-  	<param-value>!study123</param-value>
+  	<param-value>study</param-value>
   </context-param>
   
   <welcome-file-list>
