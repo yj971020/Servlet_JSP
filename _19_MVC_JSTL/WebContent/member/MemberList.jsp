@@ -9,7 +9,7 @@
 </head>
 <body>
 	<!-- JSTL(JSP Standard Tag Library) : JSP 확장 라이브러리로 리스트나 배열 표출 시 자주 사용
-										  JSP에서 기본적으로 제공해주지 않기 때문에 taglib 링크를 걸어서 사용
+										  JSP에서 기본적으로 제공해주지 않기 때문에 tag lib 링크를 걸어서 사용
 										  c:out : 출력문을 위한 태그
 										  			c:out value="출력할 값"
 										  c:if : 조건문을 위한 태그
