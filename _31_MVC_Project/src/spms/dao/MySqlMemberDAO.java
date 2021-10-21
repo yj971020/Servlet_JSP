@@ -87,8 +87,8 @@ public class MySqlMemberDAO implements MemberDAO {
 		int result = 0;
 		Connection connection = null;
 		PreparedStatement stmt = null;
-		final String sqlInsert = "INSERT INTO MEMBERS(EMAIL, PWD, MNAME, CRE_DATE, MOD_DATE)" +
-												"VALUES(?, ?, ?, NOW(), NOW())";
+		final String sqlInsert = "INSERT INTO MEMBERS(MNO, EMAIL, PWD, MNAME, CRE_DATE, MOD_DATE)" +
+												"VALUES((SELECT IFNULL(MAX(MNO), 0) + 1 FROM MEMBERS b), ?, ?, ?, NOW(), NOW())";
 		
 		try {
 			connection = ds.getConnection();

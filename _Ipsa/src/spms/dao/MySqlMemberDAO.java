@@ -34,7 +34,7 @@ public class MySqlMemberDAO implements MemberDAO {
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		String sqlSelect = "SELECT * FROM MEMBERS ORDER BY MNO ASC";
+		String sqlSelect = "SELECT * FROM MEMBER";
 		
 		try {
 			connection = ds.getConnection();
@@ -44,11 +44,8 @@ public class MySqlMemberDAO implements MemberDAO {
 			ArrayList<Member> members = new ArrayList<Member>();
 			
 			while(rs.next()) {
-				members.add(new Member()
-										.setNo(rs.getInt("MNO"))
-										.setName(rs.getString("MNAME"))
-										.setEmail(rs.getString("EMAIL"))
-										.setCreateDate(rs.getDate("CRE_DATE")));	
+				members.add(new Member().setId(rs.getString("ID")).setName(rs.getString("NAME"))
+						.setEmail(rs.getString("EMAIL")).setPhone(rs.getString("PHONE")).setCompany(rs.getString("COMPANY")));
 			}
 			return members;
 		} catch(Exception e) {
@@ -87,15 +84,18 @@ public class MySqlMemberDAO implements MemberDAO {
 		int result = 0;
 		Connection connection = null;
 		PreparedStatement stmt = null;
-		final String sqlInsert = "INSERT INTO MEMBERS(EMAIL, PWD, MNAME, CRE_DATE, MOD_DATE)" +
-												"VALUES(?, ?, ?, NOW(), NOW())";
+		final String sqlInsert = "INSERT INTO MEMBER(ID, PWD, NAME, EMAIL, PHONE, COMPANY)"
+				+ "VALUES(?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
 			stmt = connection.prepareStatement(sqlInsert);
-			stmt.setString(1, member.getEmail());
+			stmt.setString(1, member.getId());
 			stmt.setString(2, member.getPassword());
 			stmt.setString(3, member.getName());
+			stmt.setString(4, member.getEmail());
+			stmt.setString(5, member.getPhone());
+			stmt.setString(6, member.getCompany());
 			//insert 성공하면 1 int 값 리턴
 			result = stmt.executeUpdate();
 		} catch(Exception e) {
@@ -122,11 +122,11 @@ public class MySqlMemberDAO implements MemberDAO {
 	}
 	
 	@Override
-	public int delete(int no) throws Exception {
+	public int delete(String id) throws Exception {
 		int result = 0;
 		Connection connection = null;
 		Statement stmt = null;
-		final String sqlDelete = "DELETE FROM MEMBERS WHERE MNO=" + no;
+		final String sqlDelete = "DELETE FROM MEMBER WHERE ID=" + id;
 		
 		try {
 			connection = ds.getConnection();
@@ -157,26 +157,23 @@ public class MySqlMemberDAO implements MemberDAO {
 	
 	//해당 멤버 데이터 조회
 	@Override
-	public Member selectOne(int no) throws Exception {
+	public Member selectOne(String id) throws Exception {
 		Member member = null;
 		Connection connection = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		final String sqlSelectOne = "SELECT * FROM MEMBERS WHERE MNO=" + no;
+		final String sqlSelectOne = "SELECT * FROM MEMBER WHERE ID=" + id;
 		
 		try {
 			connection = ds.getConnection();
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sqlSelectOne);
 			if(rs.next()) {
-				member = new Member()
-									 .setNo(rs.getInt("MNO"))
-									 .setEmail(rs.getString("EMAIL"))
-									 .setName(rs.getString("MNAME"))
-									 .setCreateDate(rs.getDate("CRE_DATE"));
+						member = new Member().setId(rs.getString("ID")).setName(rs.getString("NAME"))
+						.setEmail(rs.getString("EMAIL")).setPhone(rs.getString("PHONE")).setCompany(rs.getString("COMPANY"));
 			} else {
-				throw new Exception("해당 번호의 회원을 찾을 수 없습니다.");
+				throw new Exception("해당 ID의 회원을 찾을 수 없습니다.");
 			}
 		} catch(Exception e) {
 			throw e;
@@ -208,14 +205,17 @@ public class MySqlMemberDAO implements MemberDAO {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
-		final String sqlUpdate = "UPDATE MEMBERS SET EMAIL=?, MNAME=?, MOD_DATE=NOW() WHERE MNO=?";
+		final String sqlUpdate = "UPDATE MEMBER SET PWD=?, NAME=?, EMAIL=?, PHONE=?, COMPANY=?, WHERE ID=?";
 		
 		try {
 			connection = ds.getConnection();
 			stmt = connection.prepareStatement(sqlUpdate);
-			stmt.setString(1, member.getEmail());
+			stmt.setString(1, member.getPassword());
 			stmt.setString(2, member.getName());
-			stmt.setInt(3, member.getNo());
+			stmt.setString(3, member.getEmail());
+			stmt.setString(4, member.getPhone());
+			stmt.setString(5, member.getCompany());
+			stmt.setString(6, member.getId());
 			result = stmt.executeUpdate();
 		} catch(Exception e) {
 			throw e;
@@ -241,25 +241,25 @@ public class MySqlMemberDAO implements MemberDAO {
 	}
 	
 	@Override
-	public Member exist(String email, String password) throws Exception {
-		System.out.println(email);
+	public Member exist(String id, String password) throws Exception {
+		System.out.println(id);
 		System.out.println(password);
 		Member member = null;
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		final String sqlExist = "SELECT * FROM MEMBERS WHERE EMAIL=? AND PWD=?";
+		final String sqlExist = "SELECT * FROM MEMBER WHERE ID=? AND PWD=?";
 		
 		try {
 			connection = ds.getConnection();
 			stmt = connection.prepareStatement(sqlExist);
-			stmt.setString(1, email);
+			stmt.setString(1, id);
 			stmt.setString(2, password);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
 				member = new Member()
-									 .setName(rs.getString("MNAME"))
+									 .setName(rs.getString("NAME"))
 									 .setEmail(rs.getString("EMAIL"));
 			} else {
 				return null;

@@ -25,7 +25,7 @@
                    <form action="/auth/login.do" method="post">
                     <div class="group">
                         <label for="user" class="label">User_ID</label> 
-                        <input id="user" name="email" type="text" class="input">
+                        <input id="user" name="id" type="text" class="input">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Password</label>
@@ -43,41 +43,44 @@
                     </div>
                     <div style="clear: both;"></div>
                 </div>
-                <div class="sign-up-htm">
+                
+                   
+                <div class="sign-up-htm"> 
+                 <form action="/member/add.do" method="post">
                     <div class="group">
                         <label for="user" class="label">User_ID</label>
-                        <input id="user" type="text" class="input">
+                        <input id="user" name="id" type="text" class="input">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
+                        <input id="pass" name="password" type="password" class="input" data-type="password">
                     </div>
-                    <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
+                  
                     <div class="group">
                         <label for="pass" class="label">name</label>
-                        <input id="pass" type="text" class="input">
+                        <input id="pass" name="name" type="text" class="input">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Email Address</label>
-                        <input id="pass" type="text" class="input">
+                        <input id="pass" name="email" type="text" class="input">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Phone Number</label>
-                        <input id="pass" type="text" class="input">
+                        <input id="pass" name="phone" type="text" class="input">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Company Name</label>
-                        <input id="pass" type="text" class="input">
+                        <input id="pass" name="company" type="text" class="input">
                     </div>
                     <div class="group">
                         <input type="submit" class="button" value="Sign Up">
                     </div>
+                    
+                    </form>
                     <div class="foot-lnk">
-                        <label for="tab-1">Already Member?</a>
+                        <a><label for="tab-1">Already Member?</label></a>
                     </div>
+                   
                 </div>
             </div>
         </div>

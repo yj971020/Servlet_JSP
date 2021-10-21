@@ -61,6 +61,14 @@ public class MySqlProjectDAO implements ProjectDAO{
 			} catch(Exception e) {
 				throw e;
 			}
+			
+			try {
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(Exception e) {
+				throw e;
+			}
 		}
 	}
 	
@@ -88,6 +96,14 @@ public class MySqlProjectDAO implements ProjectDAO{
 			try {
 				if(stmt != null) {
 					stmt.close();
+				}
+			} catch(Exception e) {
+				throw e;
+			}
+			
+			try {
+				if(connection != null) {
+					connection.close();
 				}
 			} catch(Exception e) {
 				throw e;
@@ -138,6 +154,14 @@ public class MySqlProjectDAO implements ProjectDAO{
 			} catch(Exception e) {
 				throw e;
 			}
+			
+			try {
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(Exception e) {
+				throw e;
+			}
 		}
 	}
 	
@@ -169,6 +193,14 @@ public class MySqlProjectDAO implements ProjectDAO{
 			} catch(Exception e) {
 				throw e;
 			}
+			
+			try {
+				if(connection != null) {
+					connection.close();
+				}
+			} catch(Exception e) {
+				throw e;
+			}
 		}
 	}
 	
@@ -189,6 +221,14 @@ public class MySqlProjectDAO implements ProjectDAO{
 			try {
 				if(stmt != null) {
 					stmt.close();
+				}
+			} catch(Exception e) {
+				throw e;
+			}
+			
+			try {
+				if(connection != null) {
+					connection.close();
 				}
 			} catch(Exception e) {
 				throw e;

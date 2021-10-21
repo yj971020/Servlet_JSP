@@ -30,12 +30,12 @@ public class MemberAddController implements Controller, DataBinding {
 	public String execute(Map<String, Object> model) throws Exception {
 		Member member = (Member)model.get("member");
 		
-		if(member.getEmail() == null) {
-			return "/member/MemberForm.jsp";
+		if(member.getId() == null) {
+			return "../index.jsp";
 		} else {
 			memberDAO.insert(member);
 			
-			return "redirect:list.do";
+			return "redirect:../loginpage.jsp";
 		}
 	}
 }

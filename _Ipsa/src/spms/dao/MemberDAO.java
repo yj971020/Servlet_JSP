@@ -16,8 +16,8 @@ import spms.vo.Member;
 public interface MemberDAO {
 	public List<Member> selectlist() throws Exception;
 	public int insert(Member member) throws Exception;
-	public int delete(int no) throws Exception;
-	public Member selectOne(int no) throws Exception;
+	public int delete(String id) throws Exception;
+	public Member selectOne(String id) throws Exception;
 	public int update(Member member) throws Exception;
-	public Member exist(String email, String password) throws Exception;
+	public Member exist(String id, String password) throws Exception;
 }
