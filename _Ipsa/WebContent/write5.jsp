@@ -4,99 +4,89 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>1조 프로젝트</title>
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css/serviceoffice_stylesheet.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="js/serviceoffice_style.js">
-    <link rel="stylesheet" href="css/font-stylesheet.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/css.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/serviceoffice_stylesheet.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style2.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/js/serviceoffice_style.js">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-stylesheet.css">
 </head>
 
 <body>
-    <header id="header">
-        <div class="wrap_group">
-            <div>
-                <a href="index.jsp">
-                    <h1>IPSA</h1>
-                </a>
-            </div>
-            <div class="navbar_menu">
-                <ul class="top_navbar">
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write7.jsp'"><a
+   <header id="header">
+      <div class="wrap_group">
+         <div>
+            <a href="<%=request.getContextPath()%>/index.jsp">
+               <h1>IPSA</h1>
+            </a>
+         </div>
+         <div class="navbar_menu">
+             <ul class="top_navbar">
+                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/write7.jsp'"><a
                         href="#">마이페이지</a></div>
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write2.jsp'"><a
-                            href="#">회원정보 수정</a></div>
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write.jsp'"><a
+                   
+                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/board/add.do'"><a
                             href="#">문의하기</a></div>
-                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='write5.jsp'"><a
+                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/board/list.do'"><a
                                 href="#">문의내역</a></div>
-                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='write4.jsp'"><a
+                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/review/add.do'"><a
                                 href="#">리뷰하기</a></div>
-                                <div class="navbar_item" style="display: inline-block;" onclick="location.href='write6.jsp'"><a
+                                <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/review/list.do'"><a
                                     href="#">리뷰내역</a></div>
                 </ul>
-            </div>
+         </div>
+      </div>
+   </header>
+   <div class="board_wrap">
+      <div class="board_title">
+         <a href="board.html"><strong>문의내역</strong></a>
+      </div>
+      <div class="board_list">
+         <div class="top">
+            <div class="num">번호</div>
+            <div class="num">지점</div>
+            <div class="num">작성자</div>
+            <div class="title" style="font-size: 20px; width: 40%;">제목</div>
+            <div class="num">예약날짜</div>
+            <div class="num">삭제하기</div>
+         </div>
+            <c:forEach var="board" items="${board }">
+            <c:if test="${board.name ==  Member.name}">
+               <div class="top">
+                  <div class="num">${board.no}</div>
+                  <div class="num">
+                   <c:if test="${board.select == 1 }">
+                              <td>강남점</td>
+                           </c:if>
+                           <c:if test="${board.select == 2 }">
+                              <td>종로점</td>
+                           </c:if>
+                           <c:if test="${board.select == 3 }">
+                              <td>구로점</td>
+                           </c:if>
+                  </div>
+                  <div class="num"><a href="update.do?no=${board.no }">${board.name }</a></div>
+                  <div class="title" style="font-size: 20px; width: 40%;">${board.title}</div>
+                  <div class="date">${board.reservation}</div>
+                  <div class="date"><a href="delete.do?no=${board.no }">[삭제]</a></div>
+               </div>
+               </c:if>
+            </c:forEach>
+      </div>
+       <div class="bt_wrap">
+            <a style="border: none; background: transparent;color:white; padding:200px"></a>
         </div>
-    </header>
-    <div class="board_wrap">
-        <div class="board_title">
-            <a href="board.html"><strong>문의내역</strong></a>
-        </div>
-            <div class="board_list_wrap">
-                <div class="board_list">
-                    <div class="top">
-                        <div class="num">번호</div>
-                        <div class="title">문의내용</div>
-                        <div class="date">작성일</div>
-                        <div class="count">조회</div>
-                    </div>
-                    <div>
-                        <div class="num"></div>
-                        <div class="title"></div>
-                     
-                        <div class="date"></div>
-                        <div class="count"></div>
-                    </div>
-                    <div>
-                        <div class="num"></div>
-                        <div class="title"></div>
-                        
-                        <div class="date"></div>
-                        <div class="count"></div>
-                    </div>
-                    <div>
-                        <div class="num"></div>
-                        <div class="title"></div>
-                        <div class="date"></div>
-                        <div class="count"></div>
-                    </div>
-                    <div>
-                        <div class="num"></div>
-                        <div class="title"></div>
-                        
-                        <div class="date"></div>
-                        <div class="count"></div>
-                    </div>
-                    <div>
-                        <div class="num"></div>
-                        <div class="title"></div>
-                        
-                        <div class="date"></div>
-                        <div class="count"></div>
-                    </div>
-        </div>
-    </div>
+   </div>
 
-    <footer class="footer" style="padding-bottom: 0px;">
+   <footer class="footer" style="padding-bottom: 0px;">
         <div class="row">
             <div class="col-md-3 info-big">
-                <a href="index.jsp">
-                    <img src="images/logo.png" style="height: 150px;">
+                <a href="<%=request.getContextPath()%>/index.jsp">
+                    <img src="<%=request.getContextPath()%>/images/logo.png" style="height: 150px;">
                 </a>
             </div>
             <div class="col-md-5" style="line-height: 30px;">
@@ -118,7 +108,7 @@
                 </p>
             </div>
     </footer>
-
+ 
 </body>
 
 </html>

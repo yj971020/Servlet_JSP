@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>1조 프로젝트</title>
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css/serviceoffice_stylesheet.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="js/serviceoffice_style.js">
-    <link rel="stylesheet" href="css/font-stylesheet.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/css.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/serviceoffice_stylesheet.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/js/serviceoffice_style.js">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-stylesheet.css">
 </head>
 
     
@@ -21,77 +21,82 @@
     <header id="header">
         <div class="wrap_group">
             <div>
-                <a href="index.jsp">
+                <a href="<%=request.getContextPath()%>/index.jsp">
                     <h1>IPSA</h1>
                 </a>
             </div>
             <div class="navbar_menu">
-                <ul class="top_navbar">
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write7.jsp'"><a
+              <ul class="top_navbar">
+                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/write7.jsp'"><a
                         href="#">마이페이지</a></div>
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write2.jsp'"><a
-                            href="#">회원정보 수정</a></div>
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write.jsp'"><a
+
+                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/board/add.do'"><a
                             href="#">문의하기</a></div>
-                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='write5.jsp'"><a
+                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/board/list.do'"><a
                                 href="#">문의내역</a></div>
-                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='write4.jsp'"><a
+                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/review/add.do'"><a
                                 href="#">리뷰하기</a></div>
-                                <div class="navbar_item" style="display: inline-block;" onclick="location.href='write6.jsp'"><a
+                                <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/review/list.do'"><a
                                     href="#">리뷰내역</a></div>
                 </ul>
             </div>
         </div>
     </header>
-    <div class="board_wrap_detail">
+
         <div class="board_title">
-            <a href="board.html"><strong>문의하기</strong></a>
+          <strong>문의하기</strong>
         </div>
+      <form action="/board/add.do" method="post">
         <div class="board_write_wrap">
             <div class="board_write">
                 <div class="info">
                     <dl>
                         <dt>이름</dt>
-                        <dd><input type="text" placeholder="작성자 이름"></dd>
+                        <dd><input type="text" id="name" name="name" placeholder="작성자 이름"></dd>
                     </dl>
                 </div>
                 <div class="info">
                     <dl>
                         <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목"></dd>
+                        <dd><input type="text" id="title" name="title" placeholder="제목"></dd>
                     </dl>
                 </div>
                     <div class="info">
                     <dl>
                         <dt>희망 날짜</dt>
-                        <date style="width:120px;height:20px;"form name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-                            <input type='date' name='userBirthday' value='2021-10-21' style="width:150px;height:30px;"/>
-                        </form>
+                        <dd><input type="text" id="reservation" name="reservation" placeholder=예)2021-10-21></dd>
                     </dl>
-                    <dl>
-                        <dt>지점 선택</dt>
-                        <select style="width:120px;height:35px;"><option>구로점<option>종로점<option>강남점</select>
-                    </dl>
-                </div>
-                <div class="title">
-                    <dl>
-                        <div class="cont">
-                            <textarea placeholder="내용을 입력하세요."></textarea>
-                            <!-- 내용칸입니다 -->
-                        </div>
-                    </dl>
+               <dl>
+                  <dt>지점 선택</dt>
+                  <dd>
+                  <select id="select" name="select" style="height:50px; width:80px; font-size:20px">
+                     <option value="0" ${board.select==0?"selected":""}>선택</option>
+                     <option value="1" ${board.select==1?"selected":""}>강남점</option>
+                     <option value="2" ${board.select==2?"selected":""}>종로점</option>
+                     <option value="3" ${board.select==3?"selected":""}>구로점</option>
+                  </select>
+                  </dd>
+               </dl>
             </div>
+                        <div class="cont">
+                            <textarea id="content" name="content" placeholder="내용을 입력하세요."></textarea>
+                        </div>
+          
             <div class="bt_wrap">
-                <a href="" class="on">등록</a>
-                <a href="write7.html" class="off">취소</a>-->
+                <input type="submit" value="추가">
+                <input type="reset" value="취소">     
             </div>
         </div>
+        <div class="bt_wrap">
+            <a style="border: none; background: transparent;color:white; padding:200px"></a>
+        </div>
     </div>
+    </form>
     <footer class="footer" style="padding-bottom: 0px;">
         <div class="row">
             <div class="col-md-3 info-big">
                 <a href="index.jsp">
-                    <img src="images/logo.png" style="height: 150px;">
+                    <img src="<%=request.getContextPath()%>/images/logo.png" style="height: 150px;">
                 </a>
             </div>
             <div class="col-md-5">

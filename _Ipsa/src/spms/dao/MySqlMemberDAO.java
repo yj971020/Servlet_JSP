@@ -160,15 +160,17 @@ public class MySqlMemberDAO implements MemberDAO {
 	public Member selectOne(String id) throws Exception {
 		Member member = null;
 		Connection connection = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		final String sqlSelectOne = "SELECT * FROM MEMBER WHERE ID=" + id;
+		final String sqlSelectOne = "SELECT * FROM MEMBER WHERE ID=?";
 		
 		try {
 			connection = ds.getConnection();
-			stmt = connection.createStatement();
-			rs = stmt.executeQuery(sqlSelectOne);
+			stmt = connection.prepareStatement(sqlSelectOne);
+			System.out.println(id);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
 			if(rs.next()) {
 						member = new Member().setId(rs.getString("ID")).setName(rs.getString("NAME"))
 						.setEmail(rs.getString("EMAIL")).setPhone(rs.getString("PHONE")).setCompany(rs.getString("COMPANY"));
@@ -205,7 +207,7 @@ public class MySqlMemberDAO implements MemberDAO {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
-		final String sqlUpdate = "UPDATE MEMBER SET PWD=?, NAME=?, EMAIL=?, PHONE=?, COMPANY=?, WHERE ID=?";
+		final String sqlUpdate = "UPDATE MEMBER SET PWD=?, NAME=?, EMAIL=?, PHONE=?, COMPANY=? WHERE ID=?";
 		
 		try {
 			connection = ds.getConnection();
@@ -260,7 +262,8 @@ public class MySqlMemberDAO implements MemberDAO {
 			if(rs.next()) {
 				member = new Member()
 									 .setName(rs.getString("NAME"))
-									 .setEmail(rs.getString("EMAIL"));
+									 .setEmail(rs.getString("EMAIL"))
+									 .setId(rs.getString("ID"));
 			} else {
 				return null;
 			}

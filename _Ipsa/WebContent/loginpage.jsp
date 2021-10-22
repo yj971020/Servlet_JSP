@@ -21,7 +21,7 @@
             <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
             <div class="login-form">
                 <div class="sign-in-htm">
-                
+                <!-- form -->
                    <form action="/auth/login.do" method="post">
                     <div class="group">
                         <label for="user" class="label">User_ID</label> 

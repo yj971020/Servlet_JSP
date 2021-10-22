@@ -2,6 +2,8 @@ package spms.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import spms.annotation.Component;
 import spms.bind.DataBinding;
 import spms.dao.MySqlMemberDAO;
@@ -20,7 +22,7 @@ public class MemberUpdateController implements Controller, DataBinding {
 	public Object[] getDataBinders() {
 		//key 값과 이름으로 매핑하여 자동으로 생성해야 되는 클래스 타입 지정
 		return new Object[] {
-				"no", Integer.class,
+				"id", String.class,
 				"member", spms.vo.Member.class
 		};
 	}
@@ -33,10 +35,13 @@ public class MemberUpdateController implements Controller, DataBinding {
 			String id = (String)model.get("id");
 			Member detailInfo = memberDAO.selectOne(id);
 			model.put("member", detailInfo);
-			return "/member/MemberUpdateForm.jsp";
+			return "../write2.jsp"; //회원정보 수정
 		} else {
+			System.out.println(member.getEmail());
 			memberDAO.update(member);
-			return "redirect:list.do";
+			HttpSession session = (HttpSession)model.get("session");
+			session.setAttribute("Member", member);
+			return "redirect:/write7.jsp";
 		}
 	}
 

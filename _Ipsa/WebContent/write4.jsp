@@ -9,35 +9,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>1조 프로젝트</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/css.css">
+     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/css.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/serviceoffice_stylesheet.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style2.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/js/serviceoffice_style.js">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-stylesheet.css">
 </head>
 
-    
 <body>
     <header id="header">
         <div class="wrap_group">
             <div>
-                <a href="index.jsp">
+                <a href="<%=request.getContextPath()%>/index.jsp">
                     <h1>IPSA</h1>
                 </a>
             </div>
             <div class="navbar_menu">
                 <ul class="top_navbar">
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write7.jsp'"><a
+                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/write7.jsp'"><a
                         href="#">마이페이지</a></div>
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write2.jsp'"><a
-                            href="#">회원정보 수정</a></div>
-                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='write.jsp'"><a
+                 
+                    <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/board/add.do'"><a
                             href="#">문의하기</a></div>
-                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='write5.jsp'"><a
+                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/board/list.do'"><a
                                 href="#">문의내역</a></div>
-                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='write4.jsp'"><a
+                            <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/review/add.do'"><a
                                 href="#">리뷰하기</a></div>
-                                <div class="navbar_item" style="display: inline-block;" onclick="location.href='write6.jsp'"><a
+                                <div class="navbar_item" style="display: inline-block;" onclick="location.href='<%=request.getContextPath()%>/review/list.do'"><a
                                     href="#">리뷰내역</a></div>
                 </ul>
             </div>
@@ -45,7 +44,7 @@
     </header>
     <div class="board_wrap_detail">
         <div class="board_title">
-            <a href="board.html"><strong>리뷰하기</strong></a>
+           <strong>리뷰하기</strong>
         </div>
         <div class="board_write_wrap">
             <div class="board_write">
@@ -92,11 +91,14 @@
             </form>
 
         </div>
+        <div class="bt_wrap">
+            <a style="border: none; background: transparent;color:white; padding:200px"></a>
+        </div>
     </div>
     <footer class="footer" style="padding-bottom: 0px;">
         <div class="row">
             <div class="col-md-3 info-big">
-                <a href="index.jsp">
+                <a href="<%=request.getContextPath()%>/index.jsp">
                     <img src="<%=request.getContextPath()%>/images/logo.png" style="height: 150px;">
                 </a>
             </div>

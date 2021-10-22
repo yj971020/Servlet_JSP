@@ -165,31 +165,27 @@
                         </thead>
                         <tbody>
                             <c:forEach var="review" items="${reviews }">
-                        <tr>
-                           <td>${review.no}</td>
-                           <c:if test="${review.branch == 0 }">
-                              <td>강남점</td>
-                           </c:if>
-                           <c:if test="${review.branch == 1 }">
-                              <td>종로점</td>
-                           </c:if>
-                           <c:if test="${review.branch == 2 }">
-                              <td>구로점</td>
-                           </c:if>
-                           <td><a href="/review/update.do?no=${review.no }">${review.name }</a></td>
-                           <td>${review.content}</td>
-                           <td>${review.regDate }</td>
-                        </tr>
-                     </c:forEach>
+                            <c:if test="${review.branch == 0 }">
+								<tr>
+									<td>${review.no}</td>
+									
+									
+										<td>강남점</td>
+									
+									<td><a href="/review/update.do?no=${review.no }"  style="color:black;">${review.name }</a></td>
+									<td>${review.content}</td>
+									<td>${review.regDate }</td>
+								</tr>
+								</c:if>
+							</c:forEach>
                         </tbody>
                     </table>
-                </div>
-                <!--  <div class="table_input">
+                 </div>
+                <div class="table_input">
                     <div class="board_button">
                         <!-- <input type="button" value="수정하기" class="btn btn-outline-success "> -->
-                        <input type="button" value="글쓰기" class="btn btn-outline-success"
-                            onclick="location.href='star.html'">
-                    </div> -->
+                   
+                    </div>
                
                 </div>
             </div>
@@ -226,10 +222,10 @@
         </footer>
     </div>
 
-    <!-- <script type="text/javascript"
-        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=ffa4adaea0c31b28cc337e80b18fadf8"></script> -->
+    <script type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7727885d48530fd60ad5557ff9b10be6"></script> 
     <script>
-        /* var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(37.499458017983244, 127.02905520777234), // 지도의 중심좌표
                 level: 4 // 지도의 확대 레벨
@@ -270,7 +266,7 @@
             position: position,
             content: content,
             yAnchor: 1
-        }); */
+        }); 
     </script>
 
 </body>

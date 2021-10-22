@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세-종로</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/serviceoffice_stylesheet.css">
-    <link rel="stylesheet" href="js/serviceoffice_style.js">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font-stylesheet.css">
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/serviceoffice_stylesheet.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/js/serviceoffice_style.js">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-stylesheet.css">
+    <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
     <!-- <script type="text/javascript"
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=076c8943e3723fdf543def2d2f9cfc21"></script> -->
@@ -25,24 +25,26 @@
         <header id="header">
             <div class="wrap_group">
                 <div>
-                    <a href="index.jsp">
+                    <a href="../index.jsp">
                         <h1>IPSA</h1>
                     </a>
                 </div>
                 <div class="navbar_menu">
                     <ul class="top_navbar">
-                        <div class="navbar_item" style="display: inline-block; background-color:rgb(99, 126, 62);"
-                            onclick="location.href='serviceoffice_IPAS_01.jsp'"><a href="#">종로점</a></div>
-                        <div class="navbar_item" style="display: inline-block;"
-                            onclick="location.href='serviceoffice_IPAS_02.jsp'"><a href="#">강남점</a></div>
-                        <div class="navbar_item" style="display: inline-block;"
-                            onclick="location.href='serviceoffice_IPAS_03.jsp'"><a href="#">구로점</a></div>
+                       <div class="navbar_item" style="display: inline-block;  background-color:rgb(99, 126, 62);">
+                       <a href="list2.do">종로점</a></div>
+                        <div class="navbar_item" style="display: inline-block;">
+                        <a href="list3.do">강남점</a></div>
+                        <div class="navbar_item" style="display: inline-block;">
+                        <a href="list4.do">구로점</a></div>
                     </ul>
                 </div>
+       		
                 <div>
                     <a href="#" style="color: black;">My Page</a>
-                </div>
-            </div>
+               
+           		</div>
+           		</div>
         </header>
 
         <main>
@@ -65,32 +67,32 @@
                             <li class="slide_item">
                                 <label for="slide06" class="left"></label>
                                 <label for="slide02" class="right"></label>
-                                <a><img src="images/office_001.png" alt="종로점"></a>
+                                <a><img src="<%=request.getContextPath()%>/images/office_001.png" alt="종로점"></a>
                             </li>
                             <li class="slide_item">
                                 <label for="slide01" class="left"></label>
                                 <label for="slide03" class="right"></label>
-                                <a><img src="images/office_002.jpg" alt="종로점"></a>
+                                <a><img src="<%=request.getContextPath()%>/images/office_002.jpg" alt="종로점"></a>
                             </li>
                             <li class="slide_item">
                                 <label for="slide02" class="left"></label>
                                 <label for="slide04" class="right"></label>
-                                <a><img src="images/office_003.jpg" alt="종로점"></a>
+                                <a><img src="<%=request.getContextPath()%>/images/office_003.jpg" alt="종로점"></a>
                             </li>
                             <li class="slide_item">
                                 <label for="slide03" class="left"></label>
                                 <label for="slide05" class="right"></label>
-                                <a><img src="images/office_004.jpg" alt="종로점"></a>
+                                <a><img src="<%=request.getContextPath()%>/images/office_004.jpg" alt="종로점"></a>
                             </li>
                             <li class="slide_item">
                                 <label for="slide04" class="left"></label>
                                 <label for="slide06" class="right"></label>
-                                <a><img src="images/office_005.jpg" alt="종로점"></a>
+                                <a><img src="<%=request.getContextPath()%>/images/office_005.jpg" alt="종로점"></a>
                             </li>
                             <li class="slide_item">
                                 <label for="slide05" class="left"></label>
                                 <label for="slide01" class="right"></label>
-                                <a><img src="images/office_006.jpg" alt="종로점"></a>
+                                <a><img src="<%=request.getContextPath()%>/images/office_006.jpg" alt="종로점"></a>
                             </li>
                         </ul>
                     </div>
@@ -100,9 +102,9 @@
                         <h1>종로점</h1>
                     </div>
                     <div class="intro_p">
-                        <img src="images/hearts_list.png">
+                        <img src="<%=request.getContextPath()%>/images/hearts_list.png">
                         <span>오피스 본질에 초점을 맞춰 입주사가 업무에 집중할 수 있는 환경을 제공합니다.<br><br><br><br></span>
-                        <img src="images/hearts_list.png">
+                        <img src="<%=request.getContextPath()%>/images/hearts_list.png">
                         <span>종로와 대학로를 잇는 곳에 자리한 ShareOffice & ShareHouse 운영업체 IPSA 입니다.</span>
                     </div>
                 </div>
@@ -111,19 +113,19 @@
                 <h1>편의시설</h1>
                 <div class="office_icon row">
                     <div class="col-md-3" style="text-align: center;">
-                        <img src="images/coffee.png">
+                        <img src="<%=request.getContextPath()%>/images/coffee.png">
                         <span><br>다양한 음료제공 및 <br>휴식공간 제공</span>
                     </div>
                     <div class="col-md-3" style="text-align: center;">
-                        <img src="images/clean.png">
+                        <img src="<%=request.getContextPath()%>/images/clean.png">
                         <span><br>방역강화 사무실별 <br>소독제 배치</span>
                     </div>
                     <div class="col-md-3" style="text-align: center;">
-                        <img src="images/pwd.png">
+                        <img src="<%=request.getContextPath()%>/images/pwd.png">
                         <span><br>지문인식 보안시스템 <br>(출입카드 불필요)</span>
                     </div>
                     <div class="col-md-3" style="text-align: center;">
-                        <img src="images/ice.png">
+                        <img src="<%=request.getContextPath()%>/images/ice.png">
                         <span><br>24시간 개별 냉.난방</span>
                     </div>
 
@@ -137,9 +139,9 @@
                 </div>
 
                 <div class="map_text col-md-4">
-                    <img src="images/placeholder.png"><span>오시는 길</span>
+                    <img src="<%=request.getContextPath()%>/images/placeholder.png"><span>오시는 길</span>
                     <p>대한민국 서울특별시 종로구 인의동 동순라길 78-18</p>
-                    <img src="images/placeholder.png"><span>SUBWAY</span>
+                    <img src="<%=request.getContextPath()%>/images/placeholder.png"><span>SUBWAY</span>
                     <p>
                         지하철 1,3,5 호선 종로 3가역 도보 13분<br>
                         지하철 1호선 종로5가역 도보 12분
@@ -150,7 +152,7 @@
             <div class="notice_wrap row">
 
                 <h1>Review</h1>
-                <div class="star col-md-4">
+               <!--   <div class="star col-md-4">
                     <div class="score">
                         <img class="score_star" src="images/star.png">
                         <p>4</p>
@@ -162,68 +164,40 @@
                         <img src="images/starrate.png" style="background-color:#ffc107;">
                         <img src="images/starrate.png" style="background-color:#ccc;">
                     </div>
-                </div>
-                <div class="star_board col-md-8">
+                </div>-->
+                <div class="star_board">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>NO</th>
-                                <th>지점명</th>
-                                <th>리뷰내용</th>
-                                <th>작성자</th>
-                                <th>등록일</th>
-                                <th>View</th>
+                                 <th>NO</th>
+                                <th>office</th>
+                                <th>Writer</th>
+                                <th>Name</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>양승인</td>
-                                <td><img src="images/star.png"><img src="images/star.png"><img
-                                        src="images/star.png"><img src="images/star.png"><img src="images/star.png">
-                                </td>
-                                <td>너무 잘 이용했습니다.</td>
-                                <td>2017.8.11</td>
-                                <td class="view">94</td>
-                            </tr>
-                            <tr>
-                                <td>02</td>
-                                <td>하헌민</td>
-                                <td><img src="images/star.png"><img src="images/star.png"><img
-                                        src="images/star.png"><img src="images/star.png"><img src="images/star.png">
-                                </td>
-                                <td>대표님이 너무 친절해요</td>
-                                <td>2020.1.21</td>
-                                <td>93</td>
-                            </tr>
-                            <tr>
-                                <td>03</td>
-                                <td>김예진</td>
-                                <td><img src="images/star.png"><img src="images/star.png"><img
-                                        src="images/star.png"><img src="images/star.png"><img src="images/star.png">
-                                </td>
-                                <td> 짱짱★☆★☆</td>
-                                <td>2021.8.11</td>
-                                <td>75</td>
-                            </tr>
-                            <tr>
-                                <td>04</td>
-                                <td>심유미</td>
-                                <td><img src="images/star.png"><img src="images/star.png"><img
-                                        src="images/star.png"><img src="images/star.png"><img src="images/star.png">
-                                </td>
-                                <td>깨끗하고 좋아요 감사합니다.</td>
-                                <td>2021.1.11</td>
-                                <td>41</td>
-                            </tr>
+                       <tbody>
+                            <c:forEach var="review" items="${reviews }">
+                            <c:if test="${review.branch == 1 }">
+								<tr>
+									<td>${review.no}</td>
+									
+									
+										<td>종로점</td>
+							
+									<td><a href="/review/update.do?no=${review.no }" style="color:black;">${review.name }</a></td>
+									<td>${review.content}</td>
+									<td>${review.regDate }</td>
+								</tr>
+								</c:if>
+							</c:forEach>
                         </tbody>
                     </table>
                 </div>
                 <div class="table_input">
                     <div class="board_button">
                         <!-- <input type="button" value="수정하기" class="btn btn-outline-success "> -->
-                        <input type="button" value="글쓰기" class="btn btn-outline-success"
-                            onclick="location.href='star.html'">
+                      
                     </div>
                 </div>
             </div>
@@ -234,8 +208,8 @@
         <footer class="footer" style="padding-bottom: 0px;">
             <div class="row">
                 <div class="col-md-3 info-big">
-                    <a href="index.jsp">
-                        <img src="images/ipsa_1조.png" style="height: 150px;">
+                    <a href="../index.jsp">
+                        <img src="<%=request.getContextPath()%>/images/ipsa_1조.png" style="height: 150px;">
                     </a>
                 </div>
                 <div class="col-md-5">
@@ -267,7 +241,7 @@
 </div>
 
 <script type="text/javascript"
-    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=ffa4adaea0c31b28cc337e80b18fadf8"></script>
+    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7727885d48530fd60ad5557ff9b10be6"></script>
 <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {

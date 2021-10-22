@@ -182,7 +182,7 @@
                   <h2>강남 지점</h2>
                   <p>강남역 도보 2분 <BR>최상의 입지조건 IPSA 강남지점을 만나보세요.</p>
                   <ul class="actions">
-                     <li><a href="/review/list2.do" class="button">지점 소개</a></li>
+                     <li><a href="/review/list3.do" class="button">지점 소개</a></li>
                   </ul>
                </div>
             </div>
@@ -198,7 +198,7 @@
                   <h2>종로 지점</h2>
                   <p>서울의 경제적 중심지 종로<br>경제상권과 의류상권의 중심지인 종로에서 IPSA와 함께 여러분의 꿈을 키워가세요 </p>
                   <ul class="actions">
-                     <li><a href="/review/list3.do" class="button">지점 소개</a></li>
+                     <li><a href="/review/list2.do" class="button">지점 소개</a></li>
                   </ul>
                </div>
             </div>
